@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields
-from schema.accelerometer_schema import AccelerometerSchema
-from schema.gps_schema import GpsSchema
-from domain.aggregated_data import AggregatedData
+from lab1.schema.accelerometer_schema import AccelerometerSchema
+from lab1.schema.gps_schema import GpsSchema
+
 
 class AggregatedDataSchema(Schema):
     accelerometer = fields.Nested(AccelerometerSchema)

@@ -12,19 +12,16 @@ class FileDatasource:
         self.gps_file = None
 
     def startReading(self, *args, **kwargs):
-        """Method to be called before reading data"""
         self.accelerometer_file = open(self.accelerometer_filename, 'r')
         self.gps_file = open(self.gps_filename, 'r')
 
     def stopReading(self, *args, **kwargs):
-        """Method to be called to stop reading data"""
         if self.accelerometer_file:
             self.accelerometer_file.close()
         if self.gps_file:
             self.gps_file.close()
 
     def read(self) -> AggregatedData:
-        """Method to return data obtained from sensors"""
         if not self.accelerometer_file or not self.gps_file:
             raise ValueError("Files not opened. Call startReading before reading data.")
 
